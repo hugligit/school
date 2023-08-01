@@ -7,6 +7,7 @@
    :caption: Contents:
 
    subjects/mathematics/maths
+   subjects/mathematics/statistics
    subjects/science/science
    subjects/computer_science/comuter_science
 
