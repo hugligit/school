@@ -10,6 +10,7 @@
    subjects/mathematics/statistics
    subjects/science/science
    subjects/computer_science/comuter_science
+   lessons/lessons.rst
 
 .. .. sectnum::
 
