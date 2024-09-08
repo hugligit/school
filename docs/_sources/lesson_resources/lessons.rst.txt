@@ -5,9 +5,18 @@ Lessons
 Interventions
 #############
 
+Bidmas
+******
+
 `BIDMAS <../lessons/index.html>`_
 
+Timetables
+**********
 
+* `Introduction <../lessons/timetables_exercises.html>`_
+* `In Data <../lessons/timetables_exercises.html?assessments=in>`_
+* `Out Data <../lessons/timetables_exercises.html?assessments=out>`_
+* `Exercises <../lessons/timetables_exercises.html?exercises=1>`_
 
 
 Scheme of Work
@@ -47,11 +56,9 @@ Year 8
 * Ratio and proportion
 * Venn diagrams
 * Perimeter and area
-* Re-teach week
 * Volume and surface area
 * Constructions
 * Averages
-* Christmas activities
 * Percentages
 * Scatter graphs
 * Factors, multiples and primes
@@ -60,7 +67,6 @@ Year 8
 * Coordinates and gradients
 * y = mx +c
 * BIDMAS
-* Re-teach week
 * Angles in parallel lines
 * Factorising and rearranging
 * Transformations
