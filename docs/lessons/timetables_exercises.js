@@ -1,19 +1,3 @@
-// EVENT LISTENERS {{{
-// Reveal.addEventListener('fragmenthidden', function(event){
-//     let fragments = event.fragments;
-//     fragments.forEach(f => {
-//         f.classList.add("blank");
-//     });
-// });
-
-// Reveal.addEventListener('fragmentshown', function(event){
-//     let fragments = event.fragments;
-//     fragments.forEach(f => {
-//         f.classList.remove("blank");
-//     });
-// });
-// }}}
-// DATA {{{
 const assessments = [ // {{{
     [ // { IN
         '6 * 2', '7 * 6', '9 * 5', '3 * 6', '6 * 5', '4 * 7', '2 * 8', '9 * 8', '5 * 2',
@@ -50,34 +34,78 @@ const exercises = [ // {{{
     [[6, 7], [6, 8]], // 6
     [[8, 7]], // 8
 ] // }}}
-// }}}
-// MAIN {{{
+
+notesIntroduction = [
+    `one`,
+    `one`,
+];
+
 init();
-const  urlParameters = parseQueryString();
+const urlParameters = parseQueryString();
 const urlParaAssessments = urlParameters.get("assessments");
 const urlParaExercises = urlParameters.get("exercises");
 
-if (urlParaAssessments){ 
-    buildAssesments(urlParaAssessments);
-} else if (urlParaExercises) {
-    buildExercises(urlParaExercises);
-} else {
+if (urlParaAssessments){ buildAssesments(urlParaAssessments); } 
+else if (urlParaExercises) { buildExercises(urlParaExercises); } 
+else { 
     buildDefault(); 
+    buildAssesments("in");
 } 
-// }}}
 
+// FUNCTIONS {{{
 function buildDefault() { // {{{
     createSection( // {{{
-        [generateTable(), reduceTable()],
-        // [html],
+        [`
+            <h1 class="fragment fade-in">Mr Hrdina</h1>
+            <h3 class="fragment fade-in">Slovakia</h3>
+            `,
+
+        `
+            <h1>8:25 - 8:45</h1>
+            `],
         {
             gradientCentre: "#181848",
             gradientEdge: "#000001",
             id: "q",
             numbered: false,
-            template: (c, i) => { return `${c}`}
+            template: (c, i) => { return `${c}`},
+            notes: [
+            `
+                Speaking of me, who am I? My name is Mr Hrdina. That is unusual
+                name, and you can also guess from my accent that I moved to
+                England from Europe. And that is correct, I came from Slovakia,
+                which is an obscure country in East Europe
+            `,
+            `
+                <p>Now back to Maths, We will meet here during tutor times
+                every week on on your days. Please make sure that you're here
+                on time and do not force me to mark the late minutes for you.
+                We're going to meeting here until Christmas holiday looking at
+                this and that, depending on what wi find needed.</p>
+
+                <p>Well, here's one warning I have to give to you. I will have
+                to ask you for a small demonstration of what you already know
+                at the beginning and again by the time we finish. Other than
+                that you don't have to expect any other tests. Even those two
+                are nothing to worry about. I will give you a simple Maths
+                question, enough time to answer and then we move to the next
+                one. The only reason is to see where we stand.</p>
+
+                <p>"What kind of questions will there be?" you may ask. The
+                answer is Multiplication Tables</p>
+            `
+            ],
         }); // }}}
-    // introductory lesson
+    createSection( // {{{
+        [generateTable(), reduceTable()],
+        {
+            gradientCentre: "#181848",
+            gradientEdge: "#000001",
+            id: "q",
+            numbered: false,
+            template: (c, i) => { return `${c}`},
+            notes: notesIntroduction,
+        }); // }}}
 } // }}}
 function buildExercises(para) { // {{{
     let tmpl = (c, i) => {
@@ -113,7 +141,8 @@ function buildExercises(para) { // {{{
             gradientEdge: "#000001",
             id: "q",
             numbered: false,
-            template: (c, i) => { return `${c}`}
+            template: (c, i) => { return `${c}`},
+            notes: "one\ntwo",
         }); // }}}
 
     createSection( // {{{
@@ -261,10 +290,12 @@ function createSection(set, args){ // {{{
         let childSection = document.createElement("section");
         childSection.setAttribute("data-background-gradient", `radial-gradient("#181848", "#000001",)`);
         childSection.innerHTML = contents;
-        let note = document.createElement("aside");
-        note.innerHTML = "Speaker's notes";
-        note.classList.add("notes");
-        childSection.appendChild(note);
+        if (args.notes) {
+            let note = document.createElement("aside");
+            note.innerHTML = args.notes[index];
+            note.classList.add("notes");
+            childSection.appendChild(note);
+        }
         parentSection.appendChild(childSection);
     });
 } // }}}
@@ -361,8 +392,9 @@ function reduceTable() { // {{{
     output.push("</table>");
     return output.join(" ");
 } // }}}
-function generateTimesTriangle(level){
+function generateTimesTriangle(level){ // {{{
     let output = [];
+    let fragmentIndex;
 
     let hightlights = [
         [ 1, 0, 0, 0, 0, 0, 0, 0 ],
@@ -396,20 +428,28 @@ function generateTimesTriangle(level){
             let cellClasses = [];
             let product = (row) * (cell);
             let hIndex = hightlights[row-2][cell-2];
-            if (hIndex === 0) { cellClasses.push("blank") }
+            if (hIndex === 0) { 
+                cellClasses.push("blank") 
+                fragmentIndex = '';
+            }
             else if (hIndex === level)  { 
                 cellClasses.push("fragment") 
                 cellClasses.push("custom") 
                 cellClasses.push("new")
+                fragmentIndex = `data-fragment-index="${hIndex}"`;
             }
-            else if (0 < hIndex < level) { 
+            else if ((0 < hIndex) && (hIndex < level)) { 
+            // else { 
                 cellClasses.push("fragment") 
                 cellClasses.push("custom") 
                 cellClasses.push("mastered") 
+                fragmentIndex = `data-fragment-index="${hIndex}"`;
             }
             cellClasses = cellClasses.join(" ");
             cellClasses = `class="${cellClasses}"`;
-            cells.push(`<td ${cellClasses} data-fragment-index="${hIndex}">${product}</td>`);
+            cells.push(`<td ${cellClasses} ${fragmentIndex}>${product}</td>`);
+            // cells.push(`<td ${cellClasses}>${product}</td>`);
+            // console.log(4);
         } // }}}
         
         cells = cells.join("");
@@ -420,56 +460,67 @@ function generateTimesTriangle(level){
 
     output.push("</table>");
     return output.join(" ");
-}
-functon init(){
-
-                            Reveal.initialize({
-                                            dependencies: [
-                                                            {src: "plugin/countdown/countdown.js"}
-                                                        ],
-                                            katex: { trust: true },
-                                            menu: {
-                                                            side: 'left',
-                                                            themes: true,
-                                                            themesPath: 'dist/theme/',
-                                                            custom: [
-                                                                            {
-                                                                                title: "Links",
-                                                                                icon: '<i class="fa fa-external-link">',
-                                                                                content: `
-        <ul>
-           <li><a href="?introduction=true">Introduction</a></li>
-           <li><a href="?assessments=in">IN Data</a></li>
-           <li><a href="?assessments=out">OUT Data</a></li>
-           <li><a href="?explanations=true">Hugli</a></li>
-           <li><a href="?explanations=true">Explanation</a></li>
-           <li>Exercises</li>
-            <ul>
-               <li><a href="?exercises=1">1, 10 & 11</a></li>
-               <li><a href="?exercises=2">2 & 5</a></li>
-               <li><a href="?exercises=3">3 & 4</a></li>
-               <li><a href="?exercises=squares">Squares</a></li>
-               <li><a href="?exercises=9">9</a></li>
-               <li><a href="?exercises=6">6</a></li>
-               <li><a href="?exercises=8">8</a></li>
-            </ul>
-        </ul>`,
-                                                        }
-                                                                            ],
-                                                        },
-                                            countdown: {
-                                                            defaultTime: 600,
-                                                            autostart: "no",
-                                                            tDelta: 10,
-                                                            playTickSoundLast: 5,
-                                                            tickSound: "http://soundbible.com/grab.php?id=2044&type=mp3",
-                                                            timeIsUpSound: "http://soundbible.com/grab.php?id=1746&type=mp3"
-                                                        },
-                                            hash: true,
-											scrollActivationWidth: undefined,
-
-                                            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealMenu, Tldreveal.Tldreveal() ]
-                                        });
+} // }}}
+function init(){ // {{{
+    let links = `
+        <h3>Introduction</h3>
+        <ul class="slide-menu-items">
+          <li class="slide-menu-item" data-item="1"><a href="?introduction=true">Introduction</a></li>
+          <li class="slide-menu-item" data-item="2"><a href="?assessments=in">IN Data</a></li>
+          <li class="slide-menu-item" data-item="3"><a href="?assessments=out">OUT Data</a></li>
+        </ul>
 
 
-}
+        <h3>Exercises</h3>
+        <ul class="slide-menu-items">
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=1">1, 10 & 11</a></li>
+          <li class="slide-menu-item" data-item="2"><a href="?exercises=2">2 & 5</a></li>
+          <li class="slide-menu-item" data-item="3"><a href="?exercises=3">3 & 4</a></li>
+          <li class="slide-menu-item" data-item="4"><a href="?exercises=squares">Squares</a></li>
+          <li class="slide-menu-item" data-item="5"><a href="?exercises=9">9</a></li>
+          <li class="slide-menu-item" data-item="6"><a href="?exercises=6">6</a></li>
+          <li class="slide-menu-item" data-item="7"><a href="?exercises=8">8</a></li>
+        </ul>
+    `;
+
+    Reveal.initialize({ // {{{
+        dependencies: [ // {{{
+            {src: "plugin/countdown/countdown.js"}
+        ], // }}}
+        katex: { trust: true },
+        menu: { // {{{
+            side: 'left',
+            themes: true,
+            themesPath: 'dist/theme/',
+            custom: [
+                { // {{{
+                    title: "Links",
+                    icon: '<i class="fa fa-external-link">',
+                    content: links,
+                } // }}}
+            ],
+        }, // }}}
+        countdown: { // {{{
+            defaultTime: 600,
+            autostart: "no",
+            tDelta: 5,
+            playTickSoundLast: 5,
+            tickSound: "http://soundbible.com/grab.php?id=2044&type=mp3",
+            timeIsUpSound: "http://soundbible.com/grab.php?id=1746&type=mp3"
+        }, // }}}
+        hash: true,
+        scrollActivationWidth: undefined,
+        plugins: [ // {{{
+            RevealMarkdown, 
+            RevealHighlight, 
+            RevealNotes, 
+            RevealMath.KaTeX, 
+            RevealMenu, 
+            Tldreveal.Tldreveal(),
+        ] // }}}
+    }); // }}}
+} // }}}
+// }}}
+
+
+
