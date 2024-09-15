@@ -59,9 +59,25 @@ function buildDefault() { // {{{
             <h1 class="fragment fade-in">Mr Hrdina</h1>
             <h3 class="fragment fade-in">Slovakia</h3>
             `,
+        `
+            <div class="r-stack">
+                <img src="images/Slovakia01.png">
+                <img class="fragment" src="images/Slovakia02.png">
+            </div>
+            `,
+
 
         `
             <h1>8:25 - 8:45</h1>
+            <table class="fragment" data-fragment-index="1">
+                <tr>
+                    <td>Monday</td>
+                    <td class="fragment fade-out" data-fragment-index="2">Tuesday</td>
+                    <td>Wednesday</td>
+                    <td class="fragment fade-out" data-fragment-index="2">Thursday</td>
+                    <td>Friday</td>
+                </tr>
+            </table>
             `],
         {
             gradientCentre: "#181848",
