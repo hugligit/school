@@ -44,6 +44,7 @@ init();
 const urlParameters = parseQueryString();
 const urlParaAssessments = urlParameters.get("assessments");
 const urlParaExercises = urlParameters.get("exercises");
+const urlParaDays = urlParameters.get("days");
 
 if (urlParaAssessments){ buildAssesments(urlParaAssessments); } 
 else if (urlParaExercises) { buildExercises(urlParaExercises); } 
@@ -54,6 +55,9 @@ else {
 
 // FUNCTIONS {{{
 function buildDefault() { // {{{
+    let even = urlParaDays == "even" ? 'class="fragment fade-out" data-fragment-index="2"' : ""
+    let odd = urlParaDays == "odd" ? 'class="fragment fade-out" data-fragment-index="2"' : ""
+
     createSection( // {{{
         [`
             <h1 class="fragment fade-in">Mr Hrdina</h1>
@@ -71,11 +75,11 @@ function buildDefault() { // {{{
             <h1>8:25 - 8:45</h1>
             <table class="fragment" data-fragment-index="1">
                 <tr>
-                    <td>Monday</td>
-                    <td class="fragment fade-out" data-fragment-index="2">Tuesday</td>
-                    <td>Wednesday</td>
-                    <td class="fragment fade-out" data-fragment-index="2">Thursday</td>
-                    <td>Friday</td>
+                    <td ${even}>Monday</td>
+                    <td ${odd}>Tuesday</td>
+                    <td ${even}>Wednesday</td>
+                    <td ${odd}>Thursday</td>
+                    <td ${even}>Friday</td>
                 </tr>
             </table>
             `],
