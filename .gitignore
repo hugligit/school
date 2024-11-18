@@ -1,2 +1,4 @@
 # don't include the temporary preview docs
 _build 
+
+*.psd
