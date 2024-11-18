@@ -26,6 +26,14 @@ Transformations
 * `Transformations <https://www.geogebra.org/geometry/gvbcb4um>`_
 
 
+Algebra
+*******
+
+* `a_In Data <../lessons/algebra.html?assessments=in>`_
+* `a_Out Data <../lessons/algebra.html?assessments=out>`_
+* `a_Exercises <../lessons/algebra.html?exercises=1>`_
+
+
 .. Ideas
 .. *****
 
