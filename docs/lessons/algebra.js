@@ -16,7 +16,7 @@ const assessments = [ // {{{
         ['4(x + 3) = 16'        , 'find x']                             ,
         ['3x(4x + 2)'           , 'expand']                             ,
         ['12 + 16y'             , 'factorise']                          ,
-        ['3y^2 - 7'             , 'work out the value when: x=3']       ,
+        ['3y^2 - 7'             , 'work out the value when: y=3']       ,
         ['a(2a + b)'            , 'expand']                             ,
         ['2x + 7 = 3x - 4'      , 'find x']                             ,
         ['20a^2 + 15a'          , 'factorise']                          ,
@@ -30,16 +30,66 @@ const assessments = [ // {{{
 ]; // }}}
 const exercises = [ // {{{
     [
-        [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [1, 9], // 1
-        [11, 1], [11, 2], [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10], // 11
-        [10, 1], [10, 2], [10, 3], [10, 4], [10, 5], [10, 6], [10, 7], [10, 8], [10, 9] // 10
+
+        ['n + n + 2n', 'simplify'],
+        ['n + n + 2n', 'simplify'],
+        ['n + n + 2n', 'simplify'],
     ],
 
 
     [
-        [2, 2], [2, 3], [2, 4], [2, 5], [2, 6], [2, 7], [2, 8], [2, 9], // 2
-        [5, 3], [5, 4], [5, 5], [5, 6], [5, 7], [5, 8], [5, 9], // 5
-    ],
+        ['n + n + 2n'           , 'simplify']                           ,
+        ['k + k + 8'            , 'simplify']                           ,
+        ['3x + 4x - 2n'         , 'simplify']                           ,
+        ['3c + 3d - c + 2d'     , 'simplify']                           ,
+        ['2a + 3a^2 - a + 2a^2' , 'simplify']                           ,
+
+
+/*
+        3x + 5x
+7a - 3a
+4x + 2 - x + 5
+6y - 4 + 2y + 8
+5m - 2m + 3
+5x + 3x + 2
+8y - 4y + 7
+3a + 6 + 2a - 1
+10m - 4m + 3m
+7x + 5 - 2x - 3
+4b + b - 2b + 6
+9p - 2 + 3p + 4
+2c + 5 + 4c - 3
+11x - 3x + 8 - 6
+6z + 3 - z + 2z - 5
+
+
+3x^2 + 5x^2 + 4
+7y^3 - 2y^3 + 3y
+2a^2 + 4 + 3a^2 - 6
+6m^2 + 2m - 3m^2 + 5
+8x^3 + 3 - 5x^3 + x
+5b^2 + 3b - 2b^2 + 6
+4p^3 + 2 - p^3 + 6p
+10c^2 + 3c + 2c^2 - 5
+9x^3 - 3x^2 + 7x^3 + 2x^2
+6z^2 + 4 - z^2 + 3z^2 - 8
+
+
+
+
+3x + 2y + 5x - y
+4a^2 + 3b - 2a^2 + 5b
+6m + 2n - 3m + n
+5x^2 + 4y - 2x^2 + 3y
+7p^3 + 2q^2 - 3p^3 + q^2
+8a^2b + 3ab - 2a^2b + ab
+9x + 4y - x + 5y
+2c^3 + 5d^2 + 4c^3 - d^2
+6x^2y - 2xy^2 + 3x^2y + xy^2
+10m^2 + 3n - 4m^2 + 2n
+
+*/
+   ],
 
     [
         [3, 3], [3, 4], [3, 6], [3, 7], [3, 8], [3, 9], // 3
@@ -158,34 +208,17 @@ function buildExercises(para) { // {{{
         return t
     }
     const slides = document.querySelector(".slides");
-    let currentLesson = ["1", "2", "3", 'squares', "9", "6", "8"].indexOf(para);
+    let currentLesson = ["1", "2", "3", "4", "5"].indexOf(para);
     let currentExercises = assembleProblems( // {{{
         exercises, 
         currentLesson, 
         {
             revision: false,
-            format: true,
-            shuffle: true,
-        }); // }}}
-    let currentPractice = assembleProblems( // {{{
-        exercises, 
-        currentLesson, 
-        {
-            revision: true,
-            format: true,
-            shuffle: true,
+            format: false,
+            shuffle: false,
         }); // }}}
 
-    createSection( // {{{
-        [generateTimesTriangle(urlParaExercises)],
-        {
-            gradientCentre: "#181848",
-            gradientEdge: "#000001",
-            id: "q",
-            numbered: false,
-            template: (c, i) => { return `${c}`},
-            notes: "one\ntwo",
-        }); // }}}
+    console.log(currentExercises);
 
     createSection( // {{{
         currentExercises,
@@ -197,16 +230,7 @@ function buildExercises(para) { // {{{
             template: tmpl,
         }); // }}}
     createSection( // {{{
-        currentPractice,
-        {
-            gradientCentre: "#181848",
-            gradientEdge: "#000001",
-            id: "q",
-            numbered: false,
-            template: tmpl,
-        }); // }}}
-    createSection( // {{{
-        ["Thank You"],
+        [["Thank You", ""]],
         {
             gradientCentre: "#181848",
             gradientEdge: "#000001",
@@ -300,7 +324,7 @@ function assembleProblems(set, level, args) { // {{{
             let i = Math.floor(Math.random()*2);
             let first = item[i];
             let second = item[1-i];
-            return first + "*" + second
+            return [first + "*" + second]
         });
     } // }}}
     return output
@@ -518,13 +542,12 @@ function init(){ // {{{
 
         <h3>Exercises</h3>
         <ul class="slide-menu-items">
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=1">1, 10 & 11</a></li>
-          <li class="slide-menu-item" data-item="2"><a href="?exercises=2">2 & 5</a></li>
-          <li class="slide-menu-item" data-item="3"><a href="?exercises=3">3 & 4</a></li>
-          <li class="slide-menu-item" data-item="4"><a href="?exercises=squares">Squares</a></li>
-          <li class="slide-menu-item" data-item="5"><a href="?exercises=9">9</a></li>
-          <li class="slide-menu-item" data-item="6"><a href="?exercises=6">6</a></li>
-          <li class="slide-menu-item" data-item="7"><a href="?exercises=8">8</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=1">Substitution</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=2">Simplifying</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=3">Expanding</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=4">Factorising</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=5">Solving</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=6">Mixture</a></li>
         </ul>
     `;
 
