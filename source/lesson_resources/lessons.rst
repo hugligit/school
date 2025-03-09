@@ -34,6 +34,21 @@ Algebra
 * `a_Exercises <../lessons/algebra.html?exercises=1>`_
 
 
+Data Collection
+***************
+
+* `s_In Data <../lessons/stats.html?assessments=in>`_
+* `s_Out Data <../lessons/stats.html?assessments=out>`_
+* `s_Exercises <../lessons/stats.html?exercises=1>`_
+
+
+Fractions, Decimals, Percentages
+********************************
+
+* `f_In Data <../lessons/fdp.html?assessments=in>`_
+* `f_Out Data <../lessons/fdp.html?assessments=out>`_
+* `f_Exercises <../lessons/fdp.html?exercises=1>`_
+
 .. Ideas
 .. *****
 

@@ -1,202 +1,35 @@
 const assessments = [ // {{{
-    [ // {{{ IN
-        ['n + n + 2n'           , 'simplify']                           ,
-        ['k + k + 8'            , 'simplify']                           ,
-        ['3f + 2g'              , 'work out the value when: f=5; g=3']  ,
-        ['3(2 + b)'             , 'expand']                             ,
-        ['4(a - 2)'             , 'expand']                             ,
-        ['3x + 4x - 2n'         , 'simplify']                           ,
-        ['2(3x + 6)'            , 'expand']                             ,
-        ['3x + 2 = 11'          , 'find x']                             ,
-        ['5bc'                  , 'work out the value when: b=-4; c=3'] ,
-        ['3c + 3d - c + 2d'     , 'simplify']                           ,
-        ['x(7x + 8)'            , 'expand']                             ,
-        ['2a + 3a^2 - a + 2a^2' , 'simplify']                           ,
-        ['6x^2 - 4xy'           , 'factorise']                          ,
-        ['4(x + 3) = 16'        , 'find x']                             ,
-        ['3x(4x + 2)'           , 'expand']                             ,
-        ['12 + 16y'             , 'factorise']                          ,
-        ['3y^2 - 7'             , 'work out the value when: y=3']       ,
-        ['a(2a + b)'            , 'expand']                             ,
-        ['2x + 7 = 3x - 4'      , 'find x']                             ,
-        ['20a^2 + 15a'          , 'factorise']                          ,
-    ], // }}} 
-    [ // {{{ OUT
+    [ // { IN
+        '-6 + 2', '7 * 6', '9 * 5', '3 * 6', '6 * 5',
+    ], // }
+    [ // { OUT
         '3 * 6', '8 * 5', '8 * 6', '5 * 5', '2 * 3', '9 * 4', '3 * 5', '8 * 2', '7 * 7', 
         '8 * 3', '4 * 5', '6 * 5', '6 * 6', '9 * 7', '5 * 9', '8 * 7', '7 * 5', '4 * 6',
         '3 * 3', '9 * 8', '5 * 2', '4 * 4', '4 * 2', '2 * 7', '3 * 9', '4 * 8', '2 * 2',
         '6 * 9', '3 * 7', '6 * 7', '9 * 9', '8 * 8', '4 * 3', '9 * 2', '6 * 2', '4 * 7'
-    ], // }}}
+    ], // }
 ]; // }}}
 const exercises = [ // {{{
-    [ // {{{ substitution 
-        ['3f+2g', 'f=7; g=5'],
-        ['3f+2g', 'f=7; g=5'],
-        ['4d-7', 'd=6'],
-        ['u+at', 'u=3; a=10; t=6'],
-        ['3x-y', 'x=4; y=6'],
-        ['9m+2n', 'm=3; n=-6'],
-        ['5p+2r', 'p=6; r=-4'],
-        ['4f+g', 'f=5; g=-2'],
-        ['4p+5q', 'p=3; q=-2'],
-        ['9m+2n', 'm=-3; n=3'],
-        ['6p-r', 'p=-4; r=5'],
-        ['f-2g', 'f=12; g=-6'],
-        ['5p+6q', 'p=10; q=-2'],
-        ['m(n-2)', 'm=9; n=5'],
-        ['5bc', 'b=-4; c=3'],
-        ['4y^2-12', 'y=5'],
-        ['p-2q', 'p=-4; q=-7'],
-        ['b^2-4ac', 'a=8; b=-5; c=2'],
-        ['\\frac{m}{v}', 'm=32; v=8'],
-        ['2j-jk', 'j=7; k=3'],
-        ['5x^2+3', 'x=-3'],
-        ['\\frac{1}{2}bh', 'b=3; h=8'],
-        ['\\frac{1}{2}(a+b)h', 'a=7; b=6; h=10'],
-        ['u+at', 'u=12; a=-6; t=5'],
-        ['mx+c', 'm=-2; x=12; c-7'],
-        ['ut+ \\frac{1}{2}at^2', 'u=-5; a=4; t=3'],
-        ['ut+ \\frac{1}{2}at^2', 'u=3; a=2; t=4'],
-        ['\\frac{v^2-u^2}{2a}', 'v=7; u=5; a=3'],
-    ], // }}}
+    [
+        [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [1, 9], // 1
+        [11, 1], [11, 2], [11, 3], [11, 4], [11, 5], [11, 6], [11, 7], [11, 8], [11, 9], [11, 10], // 11
+        [10, 1], [10, 2], [10, 3], [10, 4], [10, 5], [10, 6], [10, 7], [10, 8], [10, 9] // 10
+    ],
 
-    [ // {{{ simplification 
-        ['3x+4x-2x', 'simplify'],
-        ['3m+3m', 'simplify'],
-        ['n+n+n', 'simplify'],
-        ['a \\times b \\times c', 'simplify'],
-        ['5p-2p', 'simplify'],
-        ['\\frac{6h}{3}', 'simplify'],
-        ['4 \\times 3x', 'simplify'],
-        ['7a-3a+6a', 'simplify'],
-        ['8g+6h-3g+h', 'simplify'],
-        ['3 \\times b \\times 9', 'simplify'],
-        ['2x-3y-6x-4y', 'simplify'],
-        ['8c+3d-c+2d', 'simplify'],
-        ['f+f+f+f+f', 'simplify'],
-        ['5a+3b+2a+2b', 'simplify'],
-        ['2a \\times 3b', 'simplify'],
-        ['2p \\times 2p', 'simplify'],
-        ['\\frac{7x+5x}{4}', 'simplify'],
-        ['11c-8d+c-d', 'simplify'],
-        ['3a \\times 4b', 'simplify'],
-        ['3x+2y+6x-y', 'simplify'],
-        ['a \\times b \\times 3', 'simplify'],
-        ['y \\times y \\times y', 'simplify'],
-        ['\\frac{10d}{d}', 'simplify'],
-        ['a \\times 2 \\times 5', 'simplify'],
-        ['b \\times b', 'simplify'],
-        ['\\frac{2y+6y}{2}', 'simplify'],
-        ['2t \\times 7s', 'simplify'],
-        ['7a+4b-3a-5b', 'simplify'],
-        ['6f-f', 'simplify'],
-        ['7x^2-3x +3x^2+6x', 'simplify'],
-        ['2 \\times n \\times 6 \\times m', 'simplify'],
-        ['6f \\times 5k', 'simplify'],
-        ['7a-6b+5a+4b', 'simplify'],
-        ['4n-3n+5n', 'simplify'],
-        ['p^2+p^2+p^2', 'simplify'],
-        ['5+2a+7b-6a+b', 'simplify'],
-        ['2rs-5rs+4rs', 'simplify'],
-        ['4a+2-7a+a-6', 'simplify'],
-        ['3xy+2xy-xy', 'simplify'],
-        ['4ab-a+3b+6', 'simplify'],
-        ['3(6y+5)-2(4y-1)', 'simplify'],
-        ['n + n + 2n'           , 'simplify']                           ,
-        ['k + k + 8'            , 'simplify']                           ,
-        ['3x + 4x - 2n'         , 'simplify']                           ,
-        ['3c + 3d - c + 2d'     , 'simplify']                           ,
-        ['2a + 3a^2 - a + 2a^2' , 'simplify']                           ,
-        ['3x + 5x', 'simplify'],
-        ['7a - 3a', 'simplify'],
-        ['4x + 2 - x + 5', 'simplify'],
-        ['6y - 4 + 2y + 8', 'simplify'],
-        ['5m - 2m + 3', 'simplify'],
-        ['5x + 3x + 2', 'simplify'],
-        ['8y - 4y + 7', 'simplify'],
-        ['3a + 6 + 2a - 1', 'simplify'],
-        ['10m - 4m + 3m', 'simplify'],
-        ['7x + 5 - 2x - 3', 'simplify'],
-        ['4b + b - 2b + 6', 'simplify'],
-        ['9p - 2 + 3p + 4', 'simplify'],
-        ['2c + 5 + 4c - 3', 'simplify'],
-        ['11x - 3x + 8 - 6', 'simplify'],
-        ['6z + 3 - z + 2z - 5', 'simplify'],
-        ['3x^2 + 5x^2 + 4', 'simplify'],
-        ['7y^3 - 2y^3 + 3y', 'simplify'],
-        ['2a^2 + 4 + 3a^2 - 6', 'simplify'],
-        ['6m^2 + 2m - 3m^2 + 5', 'simplify'],
-        ['8x^3 + 3 - 5x^3 + x', 'simplify'],
-        ['5b^2 + 3b - 2b^2 + 6', 'simplify'],
-        ['4p^3 + 2 - p^3 + 6p', 'simplify'],
-        ['10c^2 + 3c + 2c^2 - 5', 'simplify'],
-        ['9x^3 - 3x^2 + 7x^3 + 2x^2', 'simplify'],
-        ['6z^2 + 4 - z^2 + 3z^2 - 8', 'simplify'],
-        ['3x + 2y + 5x - y', 'simplify'],
-        ['4a^2 + 3b - 2a^2 + 5b', 'simplify'],
-        ['6m + 2n - 3m + n', 'simplify'],
-        ['5x^2 + 4y - 2x^2 + 3y', 'simplify'],
-        ['7p^3 + 2q^2 - 3p^3 + q^2', 'simplify'],
-        ['8a^2b + 3ab - 2a^2b + ab', 'simplify'],
-        ['9x + 4y - x + 5y', 'simplify'],
-        ['2c^3 + 5d^2 + 4c^3 - d^2', 'simplify'],
-        ['6x^2y - 2xy^2 + 3x^2y + xy^2', 'simplify'],
-        ['10m^2 + 3n - 4m^2 + 2n', 'simplify'],
-   ], // }}}
 
-    [ // {{{ expanding
-        ['7(2x+7)', 'expand and simplify'],
-        ['5a(a-6)', 'expand and simplify'],
-        ['8(3s-2)', 'expand and simplify'],
-        ['3(2y-4)', 'expand and simplify'],
-        ['p(p-3)', 'expand and simplify'],
-        ['6(5y+1)', 'expand and simplify'],
-        ['3(5x-8)', 'expand and simplify'],
-        ['7(2h-3)', 'expand and simplify'],
-        ['4(g+5)+3(g-2)', 'expand and simplify'],
-        ['a(a+b)', 'expand and simplify'],
-        ['7(t-4)+5(t-2)', 'expand and simplify'],
-        ['x(8x+1)', 'expand and simplify'],
-        ['2x^2(4x-9)', 'expand and simplify'],
-        ['6(y3)-5(y-4)', 'expand and simplify'],
-        ['n(5n+1)', 'expand and simplify'],
-        ['3x(7x^2-y)', 'expand and simplify'],
-        ['4(2y-7)-3(5y-3)', 'expand and simplify'],
-        ['9x(3y-8)', 'expand and simplify'],
-        ['3(6y+5)2(4y-1)', 'expand and simplify'],
-    ], // }}}
+    [
+        [2, 2], [2, 3], [2, 4], [2, 5], [2, 6], [2, 7], [2, 8], [2, 9], // 2
+        [5, 3], [5, 4], [5, 5], [5, 6], [5, 7], [5, 8], [5, 9], // 5
+    ],
 
-    [ // {{{ factorising
-        ['3y+12', 'factorise fully'],
-        ['12m+8m^2', 'factorise fully'],
-        ['5a^2b+15ab^2', 'factorise fully'],
-        ['18x+24', 'factorise fully'],
-        ['16q+8', 'factorise fully'],
-        ['6x^2-4xy', 'factorise fully'],
-        ['x^2-9x', 'factorise fully'],
-        ['18y+15', 'factorise fully'],
-        ['7xy+21x', 'factorise fully'],
-        ['15x-6', 'factorise fully'],
-        ['30x^2+12x', 'factorise fully'],
-        ['18+63y', 'factorise fully'],
-        ['30a^2+40ab', 'factorise fully'],
-        ['18m+mn', 'factorise fully'],
-        ['18a^2bc+30abc^2', 'factorise fully'],
-        ['4t+20', 'factorise fully'],
-    ], // }}}
-
-    [ // {{{ solving
-        ['3(n-5)=24', 'find n'],
-        ['6(c-8)=42', 'find c'],
-        ['2(w-4)=13', 'find w'],
-        ['6(p+3)=42', 'find p'],
-        ['5(f-2)=22', 'find f'],
-        ['3(g+9)=21', 'find g'],
-    ], // }}}
-
-    [ // {{{ mixture
-
-    ], // }}}
+    [
+        [3, 3], [3, 4], [3, 6], [3, 7], [3, 8], [3, 9], // 3
+        [4, 4], [4, 6], [4, 7], [4, 8], [4, 9] // 4
+    ],
+    [[6, 6], [7, 7], [8, 8], [9, 9]], // squares
+    [[9, 6], [9, 8], [9, 7]], // 9
+    [[6, 7], [6, 8]], // 6
+    [[8, 7]], // 8
 ] // }}}
 
 notesIntroduction = [
@@ -205,13 +38,10 @@ notesIntroduction = [
 ];
 
 init();
-exercises[5] = buildMixedExercises();
 const urlParameters = parseQueryString();
 const urlParaAssessments = urlParameters.get("assessments");
 const urlParaExercises = urlParameters.get("exercises");
 const urlParaDays = urlParameters.get("days");
-
-
 
 if (urlParaAssessments){ buildAssesments(urlParaAssessments); } 
 else if (urlParaExercises) { buildExercises(urlParaExercises); } 
@@ -220,47 +50,7 @@ else {
     buildAssesments("in");
 } 
 
-
-
-
-
 // FUNCTIONS {{{
-function buildMixedExercises() { // {{{
-    let options = [
-        [...Array(exercises[0].length).keys()],
-        [...Array(exercises[1].length).keys()],
-        [...Array(exercises[2].length).keys()],
-        [...Array(exercises[3].length).keys()],
-        [...Array(exercises[4].length).keys()],
-    ];
-
-    let choice = [];
-    let type = 0;
-
-    for (let i=0; i<25; i++){
-        let problem = undefined;
-        let note = "";
-        while (!problem) {
-            type = Math.floor(Math.random()*4);
-            problem = Math.floor(Math.random()*options[type].length);
-            problem = options[type].splice(problem, 1);
-            if (type === 0) {
-                console.log("hello");
-                note = exercises[type][problem][1];
-            }
-            // [exercises[type][problem][0]
-            choice.push([exercises[type][problem][0], note]);
-        }
-    }
-
-    console.log(choice)
-    return choice;
-
-
-        
-
-
-} // }}}
 function buildDefault() { // {{{
     let even = urlParaDays == "even" ? 'class="fragment fade-out" data-fragment-index="2"' : ""
     let odd = urlParaDays == "odd" ? 'class="fragment fade-out" data-fragment-index="2"' : ""
@@ -343,16 +133,34 @@ function buildExercises(para) { // {{{
         return t
     }
     const slides = document.querySelector(".slides");
-    let currentLesson = ["0", "1", "2", "3", "4", "5"].indexOf(para);
+    let currentLesson = ["1", "2", "3", 'squares', "9", "6", "8"].indexOf(para);
     let currentExercises = assembleProblems( // {{{
         exercises, 
         currentLesson, 
         {
             revision: false,
-            format: false,
-            shuffle: false,
+            format: true,
+            shuffle: true,
+        }); // }}}
+    let currentPractice = assembleProblems( // {{{
+        exercises, 
+        currentLesson, 
+        {
+            revision: true,
+            format: true,
+            shuffle: true,
         }); // }}}
 
+    createSection( // {{{
+        [generateTimesTriangle(urlParaExercises)],
+        {
+            gradientCentre: "#181848",
+            gradientEdge: "#000001",
+            id: "q",
+            numbered: false,
+            template: (c, i) => { return `${c}`},
+            notes: "one\ntwo",
+        }); // }}}
 
     createSection( // {{{
         currentExercises,
@@ -364,7 +172,16 @@ function buildExercises(para) { // {{{
             template: tmpl,
         }); // }}}
     createSection( // {{{
-        [["Thank You", ""]],
+        currentPractice,
+        {
+            gradientCentre: "#181848",
+            gradientEdge: "#000001",
+            id: "q",
+            numbered: false,
+            template: tmpl,
+        }); // }}}
+    createSection( // {{{
+        ["Thank You"],
         {
             gradientCentre: "#181848",
             gradientEdge: "#000001",
@@ -378,11 +195,11 @@ function buildAssesments(para) { // {{{
         const t = `
         <h1 class="menu-title">${i+1}</h1> 
         \\[\\begin{aligned} ${c} \\end{aligned} \\]
-        <countdown time="60" autostart="yes" />`;
+        <countdown time="15" autostart="yes" />`;
         return t
     }
     let set = assembleProblems(
-        assessments,
+        assessments, 
         para === "in" ? 0 : 1, // choose between INDATA and OUTDATA sets
         {
             shuffle: false,
@@ -400,7 +217,7 @@ function buildAssesments(para) { // {{{
         });
 
     createSection(
-        [["Thank You", '']],
+        ["Thank You"],
         {
             gradientCentre: "#181848",
             gradientEdge: "#000001",
@@ -458,7 +275,7 @@ function assembleProblems(set, level, args) { // {{{
             let i = Math.floor(Math.random()*2);
             let first = item[i];
             let second = item[1-i];
-            return [first + "*" + second]
+            return first + "*" + second
         });
     } // }}}
     return output
@@ -472,8 +289,8 @@ function createSection(set, args){ // {{{
     }; //  }}}
 
     const slides = document.querySelector(".slides");
-    // const t = '<h1 class="menu-title">{}</h1><p>simplify</p> \\[\\begin{aligned} {} \\end{aligned} \\]' +
-        // '<countdown time="{}" autostart="yes" />';
+    const t = '<h1 class="menu-title">{}</h1> \\[\\begin{aligned} {} \\end{aligned} \\]' +
+        '<countdown time="{}" autostart="yes" />';
     let parentSection = document.createElement("section");
     let gradientCentre= args.gradientCentre;
     let gradientEdge =  args.gradientEdge;
@@ -482,18 +299,14 @@ function createSection(set, args){ // {{{
     slides.appendChild(parentSection);
 
     set.forEach((contents, index) => {
-        let instruction = contents[1];
-        let expression = contents[0];
-        expression = expression.replace(/\*/g, "\\times");
-        // expression = args.template(expression, index);
-        expression = args.template(expression, expression);
-        expression = '<p>' + instruction + '</p>' + expression;
+        contents = contents.replace(/\*/g, "\\times");
+        contents = args.template(contents, index);
         if (args.numbered) {
-            expression = '<h5 class="question-number">' + (index+1) + "</h5>" + expression;
+            contents = '<h5 class="question-number">' + (index+1) + "</h5>" + contents;
         }
         let childSection = document.createElement("section");
         childSection.setAttribute("data-background-gradient", `radial-gradient("#181848", "#000001",)`);
-        childSection.innerHTML = expression;
+        childSection.innerHTML = contents;
         if (args.notes) {
             let note = document.createElement("aside");
             note.innerHTML = args.notes[index];
@@ -677,12 +490,13 @@ function init(){ // {{{
 
         <h3>Exercises</h3>
         <ul class="slide-menu-items">
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=0">Substitution</a></li>
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=1">Simplifying</a></li>
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=2">Expanding</a></li>
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=3">Factorising</a></li>
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=4">Solving</a></li>
-          <li class="slide-menu-item" data-item="1"><a href="?exercises=5">Mixture</a></li>
+          <li class="slide-menu-item" data-item="1"><a href="?exercises=1">1, 10 & 11</a></li>
+          <li class="slide-menu-item" data-item="2"><a href="?exercises=2">2 & 5</a></li>
+          <li class="slide-menu-item" data-item="3"><a href="?exercises=3">3 & 4</a></li>
+          <li class="slide-menu-item" data-item="4"><a href="?exercises=squares">Squares</a></li>
+          <li class="slide-menu-item" data-item="5"><a href="?exercises=9">9</a></li>
+          <li class="slide-menu-item" data-item="6"><a href="?exercises=6">6</a></li>
+          <li class="slide-menu-item" data-item="7"><a href="?exercises=8">8</a></li>
         </ul>
     `;
 
@@ -724,3 +538,6 @@ function init(){ // {{{
     }); // }}}
 } // }}}
 // }}}
+
+
+
