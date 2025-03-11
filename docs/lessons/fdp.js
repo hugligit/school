@@ -717,7 +717,11 @@ function init(){ // {{{
         dependencies: [ // {{{
             {src: "plugin/countdown/countdown.js"}
         ], // }}}
-        katex: { trust: true },
+        katex: { 
+            trust: true,
+            // local: 'plugin/maths',
+            local: 'plugin/katex',
+        },
         menu: { // {{{
             side: 'left',
             themes: true,
