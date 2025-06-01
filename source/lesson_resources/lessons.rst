@@ -49,6 +49,13 @@ Fractions, Decimals, Percentages
 * `f_Out Data <../lessons/fdp.html?assessments=out>`_
 * `f_Exercises <../lessons/fdp.html?exercises=1>`_
 
+Sequences
+*********
+
+* `q_In Data <../lessons/sequences.html?assessments=in>`_
+* `q_Out Data <../lessons/sequences.html?assessments=out>`_
+* `q_Exercises <../lessons/sequences.html?exercises=1>`_
+
 .. Ideas
 .. *****
 
