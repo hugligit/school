@@ -8,53 +8,53 @@ Interventions
 Bidmas
 ******
 
-`BIDMAS <../lessons/index.html>`_
+`BIDMAS </presentations/index.html>`__
 
 Timetables
 **********
 
-* `Introduction <../lessons/timetables_exercises.html>`_
-* `In Data <../lessons/timetables_exercises.html?assessments=in>`_
-* `Out Data <../lessons/timetables_exercises.html?assessments=out>`_
-* `Exercises <../lessons/timetables_exercises.html?exercises=1>`_
+* `Introduction </presentations/timetables_exercises.html>`__
+* `In Data </presentations/timetables_exercises.html?assessments=in>`__
+* `Out Data </presentations/timetables_exercises.html?assessments=out>`__
+* `Exercises </presentations/timetables_exercises.html?exercises=1>`__
 
 
 Transformations
 ***************
 
 
-* `Transformations <https://www.geogebra.org/geometry/gvbcb4um>`_
+* `Transformations <https://www.geogebra.org/geometry/gvbcb4um>`__
 
 
 Algebra
 *******
 
-* `a_In Data <../lessons/algebra.html?assessments=in>`_
-* `a_Out Data <../lessons/algebra.html?assessments=out>`_
-* `a_Exercises <../lessons/algebra.html?exercises=1>`_
+* `In Data </presentations/algebra.html?assessments=in>`__
+* `Out Data </presentations/algebra.html?assessments=out>`__
+* `Exercises </presentations/algebra.html?exercises=1>`__
 
 
 Data Collection
 ***************
 
-* `s_In Data <../lessons/stats.html?assessments=in>`_
-* `s_Out Data <../lessons/stats.html?assessments=out>`_
-* `s_Exercises <../lessons/stats.html?exercises=1>`_
+* `In Data </presentations/stats.html?assessments=in>`__
+* `Out Data </presentations/stats.html?assessments=out>`__
+* `Exercises </presentations/stats.html?exercises=1>`__
 
 
 Fractions, Decimals, Percentages
 ********************************
 
-* `f_In Data <../lessons/fdp.html?assessments=in>`_
-* `f_Out Data <../lessons/fdp.html?assessments=out>`_
-* `f_Exercises <../lessons/fdp.html?exercises=1>`_
+* `In Data </presentations/fdp.html?assessments=in>`__
+* `Out Data </presentations/fdp.html?assessments=out>`__
+* `Exercises </presentations/fdp.html?exercises=1>`__
 
 Sequences
 *********
 
-* `q_In Data <../lessons/sequences.html?assessments=in>`_
-* `q_Out Data <../lessons/sequences.html?assessments=out>`_
-* `q_Exercises <../lessons/sequences.html?exercises=1>`_
+* `In Data </presentations/sequences.html?assessments=in>`__
+* `Out Data </presentations/sequences.html?assessments=out>`__
+* `Exercises </presentations/sequences.html?exercises=1>`__
 
 .. Ideas
 .. *****
