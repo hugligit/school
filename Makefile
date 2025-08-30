@@ -17,7 +17,6 @@ help:
 
 publish:
 	$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	rsync -avu --delete lessons docs
 	touch "$(BUILDDIR)/.nojekyll"
 
 
